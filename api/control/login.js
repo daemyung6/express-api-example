@@ -69,8 +69,9 @@ doc.paths['/v1/login'].post = {
     }
 }
 
+
 app.post('/api/v1/login', function (req, res) {
-    util.requstBodyParse(req, res, onbody);
+    util.requestBodyParse(req, res, onbody);
     function onbody(body) {
         if (
             (typeof body.user_id !== 'string') ||

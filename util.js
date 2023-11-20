@@ -13,7 +13,7 @@ module.exports.dateToString = function (date) {
 
     return `${y}-${m}-${d} ${h}:${mn}:${s}`;
 }
-module.exports.returnJSON = function(res, code, success, msg, result) {
+function returnJSON(res, code, success, msg, result) {
     res.setHeader('Content-Type', 'application/json; charset=utf-8');
     res.writeHead(code);
     res.end(JSON.stringify({
@@ -22,7 +22,8 @@ module.exports.returnJSON = function(res, code, success, msg, result) {
         result: result
     }));
 }
-module.exports.requstBodyParse = function (req, res, callback) {
+module.exports.returnJSON = returnJSON;
+module.exports.requestBodyParse = function (req, res, callback) {
     let data = [];
     req.on('data', function (chunk) {
         data.push(chunk)
